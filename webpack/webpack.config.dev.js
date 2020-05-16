@@ -11,7 +11,8 @@ module.exports = merge(common, {
   },
   devServer: {
     inline: true,
-    hot: true
+    hot: true,
+    watchContentBase: true
   },
   plugins: [
     new Webpack.DefinePlugin({
