@@ -1,6 +1,242 @@
-$body-color: slateblue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+// VARIABLES
+
+$color-blue: #286efa;
+$color-snow: #f9f9f9;
+$color-error-text: #f54b4b;
+$color-error-border: #f53c3c;
+$color-input-placeholder: #999;
+
+// BASE STYLES
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box
+}
+
+:root {
+  font-size: 62.5%;
+}
 
 body {
-  color: $body-color;
-  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6;
+  font-weight: normal;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+// WRAPPER STYLE
+
+.wrapper {
+  display: flex;
+}
+
+// SECTION RIGHT
+
+.section-right {
+  background-color: $color-blue;
+  color: white;
+  flex: 1.1;
+  position: relative;
+
+  &__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 30rem;
+  }
+
+  &__heading {
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 5.6rem;
+    letter-spacing: 1px;
+  }
+
+  &__text {
+    font-size: 1.35rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+}
+
+
+// SECTION LEFT
+
+.section-left {
+  flex: 2;
+
+  &__heading {
+    text-transform: capitalize;
+  }
+
+  &__text {
+
+  }
+}
+
+
+// PAGINATION
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2.4rem 3.4rem 0 0;
+
+  &__text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: .5rem;
+    color: #222;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 3.6px;
+    color: #aaa;
+    margin-left: .7rem;
+    cursor: pointer;
+
+    &--active {
+      color: #333;
+    }
+  } 
+}
+
+
+// AUTH
+
+.auth {
+  max-width: 39rem;
+  margin: 12.5rem auto;
+  
+  &__link {
+    color: $color-blue;
+    text-decoration: none;
+  }
+
+  &__heading {
+    letter-spacing: 1px;
+  }
+
+  &__sign-in {
+    margin: 3rem 0;
+    font-size: 1.2rem;
+  }
+
+  &__legal {
+    font-size: 1rem;
+    letter-spacing: .3px;
+    line-height: 1.9;
+    word-spacing: .3px;
+  }
+
+  &__sign-in, &__legal {
+    a {
+      margin-left: .4rem;
+      font-weight: 500;
+    }
+  }
+  
+}
+
+// FORM
+
+.form {
+
+  &__control {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  &__input {
+    border: 1px solid #ededed;
+    padding: 1.4rem 1.3rem;
+    width: 100%;
+    color: #505050;
+    font-weight: 300;
+    border-radius: 3px;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      color: $color-input-placeholder;
+      font-weight: 300;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    font-weight: 300;
+    color: $color-input-placeholder;
+    font-size: 1.3rem;
+    top: 13px;
+    left: 15.4px;
+    background-color: $color-snow;
+  }
+
+  &__input:focus + &__label {
+    transition: all .2s ease-in-out;
+    top: -10px;
+  }
+
+  &__option {
+    color: $color-input-placeholder;
+  }
+
+  &__error {
+    color: $color-error-text;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  &__with-icon{
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 1.3rem;
+    top: 1.7rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  &__icon.fa-eye{
+    font-size: 1rem;
+  }
+
+  &__next {
+    background-color: #ededed;
+    color: #aaa;
+    border: none;
+    width: 100%;
+    padding: 1.4rem;
+    border-radius: 2px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    margin-bottom: 3.4rem;
+  }
+
 }
