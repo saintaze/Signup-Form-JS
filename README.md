@@ -1,5 +1,5 @@
-# SignUp-Form-JS
-A SignUp Form with input validation. 
+# Signup-Form-JS
+A Signup Form with input validation and error handling. 
 
 ### Features
 + Attractive and Fully Responsive Design.
@@ -13,7 +13,7 @@ A SignUp Form with input validation.
 + Javascript (Vanilla)
 
 # Live Version
-#### URL: [Find Your Weather](https://saintaze.github.io/Weather-App/)
+#### URL: [Sign Up Now](https://saintaze.github.io/Weather-App/)
 
 # Author
 Saintaze [@saintaze](https://github.com/saintaze/)
