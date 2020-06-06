@@ -12,8 +12,15 @@ A Signup Form with input validation and error handling.
 + SASS
 + Javascript (Vanilla)
 
+### Getting Started
+clone repo
+
+`cd` into folder and run `npm install`
+
+run `npm start`
+
 # Live Version
-#### URL: [Sign Up Now](https://saintaze.github.io/Weather-App/)
+#### URL: [Sign Up Now](https://practical-bassi-b0f99e.netlify.app/)
 
 # Author
 Saintaze [@saintaze](https://github.com/saintaze/)
