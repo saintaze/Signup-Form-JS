@@ -3,22 +3,28 @@ import { q, qA } from './helpers';
 
 import '../styles/index.scss';
 
+// Grabbing Elements from DOM
 const $controls = qA('.form__control');
 const $inputs = qA('input');
 
+
+// Controls Validation Rules
 const validationRules = {
   name: ['isNotEmpty'],
   email: ['isNotEmpty', 'isEmail'],
   password: ['isNotEmpty', 'isGreaterThan']
 }
 
-const validControls = {
+
+//  Controls Valid State
+const controlsAreValid = {
   name: false,
   email: false,
   password: false
 }
 
-// Move Label On Focus
+
+// Move Label Up On Focus
 $inputs.forEach(input => {
   input.addEventListener('focus', e => {
     input.nextElementSibling.classList.add('form__label--moveup');
@@ -26,7 +32,7 @@ $inputs.forEach(input => {
 });
 
 
-// Add Error On Touched
+// Add Error On Touch
 $controls.forEach(control => {
   if (!control.id) return;
   q('input', control).addEventListener('blur', ({ target: { value } }) => {
@@ -42,14 +48,14 @@ $controls.forEach(control => {
   q('input', control).addEventListener('keyup', ({ target: { value } }) => {
     const isValid = validationRules[controlType].every(rule => validator[rule](value));
     let toggle = isValid ? 'remove' : 'add';
-    validControls[controlType] = toggle === 'remove' ? true: false; 
+    controlsAreValid[controlType] = toggle === 'remove' ? true: false; 
     toggleErrorClass(control, toggle); 
     toggleBtnDisable();
   });
 });
 
 
-// Toggle Error Class
+// Toggle Error Classes
 const toggleErrorClass = (control, toggle) => {
   q('.form__label', control).classList[toggle]('form__label--error');
   q('.form__input', control).classList[toggle]('form__input--error');
@@ -69,8 +75,8 @@ const togglePasswordHelp = (control)=> {
 
 // Toggle Next Button Disabled
 const toggleBtnDisable = () => {
-  const formValid = Object.keys(validControls).every(control => validControls[control]);
-  let toggle = formValid ? 'remove'  : 'add';
+  const formIsValid = Object.keys(controlsAreValid).every(control => controlsAreValid[control]);
+  let toggle = formIsValid ? 'remove'  : 'add';
   q('.form__next').classList[toggle]('form__next--disabled');
 }
 

@@ -1,15 +1,12 @@
+// A convenient wrapper for [node].querySelector
 export const q = (selector, parent) => {
-  if(parent){
-    return parent.querySelector(selector);
-  }else {
-    return document.querySelector(selector);
-  }
+  const ctx = parent || document;
+  return ctx.querySelector(selector);
 }
 
+
+// A convenient wrapper for [node].querySelectorAll
 export const qA = (selector, parent) => {
-  if (parent) {
-    return parent.querySelectorAll(selector);
-  } else {
-    return document.querySelectorAll(selector);
-  }
+  const ctx = parent || document;
+  return ctx.querySelectorAll(selector);
 }
