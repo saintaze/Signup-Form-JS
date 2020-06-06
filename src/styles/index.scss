@@ -7,6 +7,11 @@ $color-snow: #f9f9f9;
 $color-error-text: #f54b4b;
 $color-error-border: #f53c3c;
 $color-input-placeholder: #999;
+$color-input-type: #505050;
+$color-gray-light-1: #aaa;
+$color-gray-light-2: #ededed;
+$border-radius: 3px;
+$transition-effect: all .2s ease-in-out;
 
 // BASE STYLES
 
@@ -107,7 +112,7 @@ body {
 
   &__link {
     font-size: 3.6px;
-    color: #aaa;
+    color: $color-gray-light-1;
     margin-left: .7rem;
     cursor: pointer;
 
@@ -164,13 +169,14 @@ body {
   }
 
   &__input {
-    border: 1px solid #ededed;
-    padding: 1.4rem 1.3rem;
+    border: 1px solid $color-gray-light-2;
+    padding: 1.5rem 1.3rem;
+    font-size: 1.4rem;
     width: 100%;
-    color: #505050;
-    font-weight: 300;
-    border-radius: 3px;
+    color: $color-input-type;
+    border-radius: $border-radius;
     font-family: inherit;
+    transition: $transition-effect;
 
     &:focus {
       outline: none;
@@ -180,10 +186,20 @@ body {
       -moz-appearance: none;
       -webkit-appearance: none;
       appearance: none;
-      color: $color-input-placeholder;
-      font-weight: 300;
+      color: $color-input-type;
       font-size: 1.3rem;
     }
+
+    &--error{
+      border: 1px solid $color-error-border;
+    }
+  }
+
+  &__help {
+    font-weight: 300;
+    color: $color-input-placeholder;
+    font-size: 1.2rem;
+    margin-top: 1rem;
   }
 
   &__label {
@@ -191,24 +207,39 @@ body {
     font-weight: 300;
     color: $color-input-placeholder;
     font-size: 1.3rem;
-    top: 13px;
-    left: 15.4px;
+    top: 1.3rem;
+    left: 1.2rem;
     background-color: $color-snow;
-  }
+    padding: 0 .4rem;
+    transition: $transition-effect;
 
-  &__input:focus + &__label {
-    transition: all .2s ease-in-out;
-    top: -10px;
+    &--moveup {
+      top: -10px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $color-gray-light-1;
+    }
+
+    &--error {
+      color: $color-error-text;
+      font-weight: 400;
+    }
   }
 
   &__option {
     color: $color-input-placeholder;
   }
 
-  &__error {
+  &__error-message {
     color: $color-error-text;
     font-size: 1.2rem;
     margin-top: 1rem;
+    display: none;
+    transition: $transition-effect;
+
+    &--show {
+      display: block;
+    }
   }
 
   &__with-icon{
@@ -228,15 +259,22 @@ body {
   }
 
   &__next {
-    background-color: #ededed;
-    color: #aaa;
+    background-color: $color-blue;
+    color: white;
     border: none;
     width: 100%;
     padding: 1.4rem;
-    border-radius: 2px;
+    border-radius: $border-radius;
     font-size: 1.15rem;
     cursor: pointer;
     margin-bottom: 3.4rem;
+    outline: none;
+    transition: $transition-effect;
+
+    &--disabled {
+      background-color: $color-gray-light-2;
+      color: $color-gray-light-1;
+    }
   }
 
 }

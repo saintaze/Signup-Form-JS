@@ -29,43 +29,48 @@
 
         <!-- Name -->
         <form class="form">
-          <div class="form__control">
+          <div class="form__control" id="form__control--name">
             <input id="name" class="form__input" type="text">
             <label for="name" class="form__label">Your name</label>
-            <div class="form__error"></div>
+            <div class="form__error-message">Name can't be empty</div>
           </div>
 
           <!-- Email -->
-          <div class="form__control">
+          <div class="form__control" id="form__control--email">
             <input id="email" class="form__input" type="text" >
             <label for="email" class="form__label">Email address</label>
-            <div class="form__error">Please enter a valid email address</div>
+            <div class="form__error-message">Please enter a valid email address</div>
           </div>
-
 
           <!-- Select -->
           <div class="form__control">
             <div class="form__with-icon">
               <select class="form__input form__input--select">
-                <option selected disabled class="form__option"> I would describe my user type as </option>
+                <option selected disabled class="form__option">I would describe my user type as</option>
+                <option class="form__option">Developer</option>
+                <option class="form__option">Designer</option>
+                <option class="form__option">Blogger</option>
+                <option class="form__option">Marketer</option>
+
               </select>
               <i class="fas fa-chevron-down form__icon"></i>
             </div>
-            <div class="form__error"></div>
+            <div class="form__error-message"></div>
           </div>
 
           <!-- Password -->
-          <div class="form__control">
+          <div class="form__control" id="form__control--password">
             <div class="form__with-icon">
               <input id="password" class="form__input" type="password" >
               <label for="password" class="form__label">Password</label>
+              <div class="form__error-message">Minimum 8 characters</div>
+              <div class="form__help">Minimum 8 characters</div>
               <i class="fas fa-eye form__icon"></i>
-            </div>
-            <div class="form__error">Minimum 8 characters</div>
+            </div>     
           </div>
 
           <!-- Next -->
-          <button class="form__next">Next</button>
+          <button class="form__next form__next--disabled">Next</button>
         </form>
 
         <!-- Legal -->
