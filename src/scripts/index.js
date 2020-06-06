@@ -18,7 +18,7 @@ const validationRules = {
 
 
 //  Controls Valid State
-const controlsAreValid = {
+const controlsValidState = {
   name: false,
   email: false,
   password: false
@@ -60,7 +60,7 @@ $controls.forEach(control => {
   q('input', control).addEventListener('keyup', ({ target: { value } }) => {
     const isValid = validationRules[controlType].every(rule => validator[rule](value));
     let toggle = isValid ? 'remove' : 'add';
-    controlsAreValid[controlType] = toggle === 'remove' ? true: false; 
+    controlsValidState[controlType] = toggle === 'remove' ? true: false; 
     toggleErrorClass(control, toggle); 
     toggleBtnDisable();
   });
@@ -87,7 +87,7 @@ const togglePasswordHelp = control => {
 
 // Toggle Next Button Disabled
 const toggleBtnDisable = () => {
-  const formIsValid = Object.keys(controlsAreValid).every(control => controlsAreValid[control]);
+  const formIsValid = Object.keys(controlsValidState).every(control => controlsValidState[control]);
   let toggle = formIsValid ? 'remove'  : 'add';
   q('.form__next').classList[toggle]('form__next--disabled');
 }
