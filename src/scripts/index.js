@@ -30,8 +30,7 @@ $inputs.forEach(input => {
 $controls.forEach(control => {
   if (!control.id) return;
   q('input', control).addEventListener('blur', ({ target: { value } }) => {
-    let toggle = !validator.isNotEmpty(value) ? 'add' : 'remove';
-    toggleErrorClass(control, toggle);
+    if (!validator.isNotEmpty(value)) toggleErrorClass(control, 'add');
   });
 });
 
@@ -55,6 +54,16 @@ const toggleErrorClass = (control, toggle) => {
   q('.form__label', control).classList[toggle]('form__label--error');
   q('.form__input', control).classList[toggle]('form__input--error');
   q('.form__error-message', control).classList[toggle]('form__error-message--show');
+  togglePasswordHelp(control);
+}
+
+
+// Toggle Password Help
+const togglePasswordHelp = (control)=> {
+  const controlType = control.id.split('--')[1];
+  const errorMessageShow = !!q('.form__error-message--show', control);
+  const toggleShow = controlType === 'password' && errorMessageShow ? 'none' : 'block';
+  q('.form__help', control).style.display = toggleShow;
 }
 
 

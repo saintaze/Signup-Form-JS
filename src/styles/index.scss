@@ -34,12 +34,14 @@ body {
 }
 
 
-
-
 // WRAPPER STYLE
 
 .wrapper {
   display: flex;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 // SECTION RIGHT
@@ -49,6 +51,12 @@ body {
   color: white;
   flex: 1.1;
   position: relative;
+
+  @media screen and (max-width: 800px) {
+    flex: none;
+    height: 30rem;
+    text-align: center;
+  }
 
   &__wrapper {
     position: absolute;
@@ -78,13 +86,10 @@ body {
 
 .section-left {
   flex: 2;
+  background-color: #f9f9f9;
 
   &__heading {
     text-transform: capitalize;
-  }
-
-  &__text {
-
   }
 }
 
@@ -159,6 +164,7 @@ body {
   
 }
 
+
 // FORM
 
 .form {
@@ -169,6 +175,7 @@ body {
   }
 
   &__input {
+    background-color: inherit;
     border: 1px solid $color-gray-light-2;
     padding: 1.5rem 1.3rem;
     font-size: 1.4rem;
@@ -177,6 +184,14 @@ body {
     border-radius: $border-radius;
     font-family: inherit;
     transition: $transition-effect;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: all 5000s ease-in-out 0s;
+      transition-property: background-color, color;
+    }
 
     &:focus {
       outline: none;
