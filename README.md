@@ -1,32 +1,21 @@
-# Webpack Frontend Starterkit
+# SignUp-Form-JS
+A SignUp Form with input validation. 
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+### Features
++ Attractive and Fully Responsive Design.
++ Full Form Validation.
++ Error Messages.
++ Toggling Error Classes.
 
-A lightweight foundation for your next webpack based frontend project.
+##### Built With
++ HTML5
++ SASS
++ Javascript (Vanilla)
+
+# Live Version
+#### URL: [Find Your Weather](https://saintaze.github.io/Weather-App/)
+
+# Author
+Saintaze [@saintaze](https://github.com/saintaze/)
 
 
-### Installation
-
-```
-npm install
-```
-
-### Start Dev Server
-
-```
-npm start
-```
-
-### Build Prod Version
-
-```
-npm run build
-```
-
-### Features:
-
-* ES6 Support via [babel](https://babeljs.io/) (v7)
-* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
-* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
-
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
