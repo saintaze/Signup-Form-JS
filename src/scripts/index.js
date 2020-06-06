@@ -3,6 +3,7 @@ import { q, qA } from './helpers';
 
 import '../styles/index.scss';
 
+
 // Grabbing Elements from DOM
 const $controls = qA('.form__control');
 const $inputs = qA('input');
@@ -32,6 +33,17 @@ $inputs.forEach(input => {
 });
 
 
+// Helper To Get Control Type/Name
+const getControlType = control => control.id.split('--')[1];
+
+
+// Handle Form Submit
+q('.form').addEventListener('submit', e => {
+  e.preventDefault();
+  // Run Some Login With JS 
+})
+
+
 // Add Error On Touch
 $controls.forEach(control => {
   if (!control.id) return;
@@ -44,7 +56,7 @@ $controls.forEach(control => {
 // Toggle Error On Type 
 $controls.forEach(control => {
   if(!control.id) return;
-  const controlType = control.id.split('--')[1];
+  const controlType = getControlType(control);
   q('input', control).addEventListener('keyup', ({ target: { value } }) => {
     const isValid = validationRules[controlType].every(rule => validator[rule](value));
     let toggle = isValid ? 'remove' : 'add';
@@ -60,16 +72,16 @@ const toggleErrorClass = (control, toggle) => {
   q('.form__label', control).classList[toggle]('form__label--error');
   q('.form__input', control).classList[toggle]('form__input--error');
   q('.form__error-message', control).classList[toggle]('form__error-message--show');
-  togglePasswordHelp(control);
+  const controlType = getControlType(control);
+  if (controlType === 'password') togglePasswordHelp(control);
 }
 
 
 // Toggle Password Help
-const togglePasswordHelp = (control)=> {
-  const controlType = control.id.split('--')[1];
+const togglePasswordHelp = control => {
   const errorMessageShow = !!q('.form__error-message--show', control);
-  const toggleShow = controlType === 'password' && errorMessageShow ? 'none' : 'block';
-  q('.form__help', control).style.display = toggleShow;
+  const show = errorMessageShow ? 'none' : 'block';
+  q('.form__help', control).style.display = show;
 }
 
 
@@ -79,5 +91,7 @@ const toggleBtnDisable = () => {
   let toggle = formIsValid ? 'remove'  : 'add';
   q('.form__next').classList[toggle]('form__next--disabled');
 }
+
+
 
 
