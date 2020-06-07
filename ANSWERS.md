@@ -1,5 +1,5 @@
-# Project Github Repo [Github Sign Up](https://github.com/saintaze/Signup-Form-JS).
-# Project Live Link [Live Sign Up](https://practical-bassi-b0f99e.netlify.app/)
+##### Project Github Repo [Github Sign Up](https://github.com/saintaze/Signup-Form-JS).
+##### Project Live Link [Live Sign Up](https://practical-bassi-b0f99e.netlify.app/)
 
 # Answers
 
